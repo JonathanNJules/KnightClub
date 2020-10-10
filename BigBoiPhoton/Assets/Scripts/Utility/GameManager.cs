@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void StartGame()
     {
         startedGame = true;
+        PhotonNetwork.LocalPlayer.NickName = username;
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
     }
 }

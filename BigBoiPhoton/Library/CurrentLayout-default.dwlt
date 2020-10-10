@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 708, y: 492}
   m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 6345
+  controlID: 14767
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,10 +145,10 @@ MonoBehaviour:
     y: 0
     width: 901
     height: 947
-  m_MinSize: {x: 201, y: 421}
-  m_MaxSize: {x: 4001, y: 8021}
+  m_MinSize: {x: 201, y: 442}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 6293
+  controlID: 14768
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 6351
+  controlID: 14729
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,8 +245,8 @@ MonoBehaviour:
     y: 0
     width: 465
     height: 416
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 80, y: 15, z: 0}
+    m_Target: {x: -1.21, y: 1.27, z: -0.79999995}
     speed: 2
-    m_Value: {x: 80, y: 15, z: 0}
+    m_Value: {x: -1.21, y: 1.27, z: -0.79999995}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -478,13 +478,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.088205464, y: 0.063616596, z: -0.0056544184, w: -0.9940705}
+    m_Target: {x: 0.19149908, y: -0.2241795, z: 0.044979703, w: 0.95450276}
     speed: 2
-    m_Value: {x: -0.08820547, y: 0.063616596, z: -0.0056544184, w: -0.99407053}
+    m_Value: {x: 0.1914965, y: -0.22417648, z: 0.044979095, w: 0.9544899}
   m_Size:
-    m_Target: 332.90033
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 332.90033
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -537,9 +537,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8c580000
-      m_LastClickedID: 22668
-      m_ExpandedIDs: 0a9dffff429dffffb69effffde9fffff4ea8ffff54a8ffffb2a8ffff12a9ffff64acffff8aacffffb4bdffff40fbffff6c57000096580000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2840ffff4c40ffff4242ffff6242ffff7642ffff4a4ffffff24fffff5e59ffff065affffc25cffff685dffff7a5dffff6064ffffa27cffffa47cffffac7cffffb07cffffb47cffffb67cffffba7cffffbc7cffffbe7cffffc07cffffc67cffffea7cffffee7cfffff27cfffff67cfffffc7cffff007dffff047dffff087dffff0c7dffff207dffff2a7dffff6887ffff1088fffffc8cffffa28dffffb48dffff9296ffffa696ffffb896ffffea97ffffe4b5ffff1ec9ffff50c9ffff7cc9ffff5cd4ffffe0e7ffff5aeaffff26edffff44f1ffff5cf4ffff74f5fffff4ffffffd04a00005660000092630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -601,21 +601,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Misc
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 51
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Misc
   m_LastFoldersGridSize: 51
   m_LastProjectPath: C:\Users\jnjju\Documents\KnightClub\BigBoiPhoton
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dc3b0000
-    m_LastClickedID: 15324
-    m_ExpandedIDs: 00000000d23b000000ca9a3b
+    m_SelectedIDs: 043d0000
+    m_LastClickedID: 15620
+    m_ExpandedIDs: 00000000003d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -643,7 +643,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d23b000000ca9a3b
+    m_ExpandedIDs: 00000000003d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -687,7 +687,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0

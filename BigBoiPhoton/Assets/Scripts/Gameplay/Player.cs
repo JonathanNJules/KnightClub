@@ -1,9 +1,11 @@
 ﻿using Photon.Pun;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks, IPunObservable
 {
     private Rigidbody rb;
+    public Transform model;
     public Transform camLookT;
     private Vector3 moveVector;
     public float moveSpeed;
@@ -12,9 +14,13 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     private Quaternion networkedRot;
     public float networkSmoothingSpeed;
 
+    public TMP_Text nameText;
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+        nameText.text = photonView.Owner.NickName;
 
         if (!photonView.IsMine) return;
 
@@ -44,7 +50,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     void NetworkedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, networkedPos, networkSmoothingSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, networkedRot, networkSmoothingSpeed * Time.deltaTime);
+        model.rotation = Quaternion.Lerp(model.rotation, networkedRot, networkSmoothingSpeed * Time.deltaTime);
     }
 
     void FixedUpdate()
@@ -52,10 +58,10 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         if (!photonView.IsMine) return;
 
         rb.velocity = moveVector * Time.deltaTime;
-        if(moveVector.sqrMagnitude > 0.5f)
+        if (moveVector.sqrMagnitude > 0.5f)
         {
             float ang = Mathf.Atan2(moveVector.z, moveVector.x) * Mathf.Rad2Deg - 90;
-            transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, -ang, 10 * Time.deltaTime), 0);
+            model.eulerAngles = new Vector3(0, Mathf.LerpAngle(model.eulerAngles.y, -ang, 15 * Time.deltaTime), 0);
         }
     }
 
@@ -64,7 +70,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
+            stream.SendNext(model.rotation);
         }
         else
         {
