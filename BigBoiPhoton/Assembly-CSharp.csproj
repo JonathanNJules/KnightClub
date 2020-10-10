@@ -110,6 +110,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Misc\CanvasFader.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\ChatMessage.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\ChatMessageRelayer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -758,6 +760,10 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{8C77CC60-9CA7-D525-F891-2BC9725310BF}</Project>
       <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{456D1E17-2AC0-B119-B52A-65F7226C0375}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
