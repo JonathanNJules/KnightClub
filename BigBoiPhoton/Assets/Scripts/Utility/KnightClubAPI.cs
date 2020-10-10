@@ -12,7 +12,7 @@ public class KnightClubAPI : MonoBehaviour
 
     public static string LoginWithJWT(string jwt)
     {
-        if (jwt == "") return null;
+        if (string.IsNullOrEmpty(jwt)) return null;
 
         // Temporary
         return "RestoredUsernameFromJWT";

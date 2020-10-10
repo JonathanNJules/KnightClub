@@ -1,16 +1,29 @@
-﻿using UnityEngine;
+﻿using ExitGames.Client.Photon;
+using Photon.Pun;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
     public static string username;
     public static string jwt;
+    public static GameManager inst;
+    private bool startedGame;
+    public static GameObject player;
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        if (inst == null) inst = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        print("Start");
+        DontDestroyOnLoad(gameObject);
+        PlayerPrefs.DeleteAll();
+
         if(SceneManager.GetActiveScene().name == "LoginMenu")
         {
             string j = PlayerPrefs.GetString("jwt", "");
@@ -19,13 +32,28 @@ public class GameManager : MonoBehaviour
             {
                 jwt = j;
                 username = u;
-                SceneManager.LoadScene("MainMenu");
+                StartCoroutine(GameObject.Find("Login Manager").GetComponent<LoginManager>().TransitionToMainMenu());
             }
         }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Main" && !startedGame)
+            StartGame();
     }
 
     void Update()
     {
         
+    }
+
+    private void StartGame()
+    {
+        print($"playerCount in {PhotonNetwork.CurrentRoom.Name}: {PhotonNetwork.CurrentRoom.PlayerCount}. visible? {PhotonNetwork.CurrentRoom.IsVisible}");
+        startedGame = true;
+        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
     }
 }
