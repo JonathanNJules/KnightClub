@@ -14,7 +14,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
-        print("a player is born");
         DontDestroyOnLoad(gameObject);
 
         if (!photonView.IsMine) return;
@@ -56,7 +55,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         if(moveVector.sqrMagnitude > 0.5f)
         {
             float ang = Mathf.Atan2(moveVector.z, moveVector.x) * Mathf.Rad2Deg - 90;
-            transform.eulerAngles = new Vector3(0, Mathf.Lerp(transform.eulerAngles.y, -ang, 10 * Time.deltaTime), 0);
+            transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, -ang, 10 * Time.deltaTime), 0);
         }
     }
 
