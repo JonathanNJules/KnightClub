@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(gameObject);
         PlayerPrefs.DeleteAll();
 
+        //PhotonNetwork.AutomaticallySyncScene = true;
+
         if(SceneManager.GetActiveScene().name == "LoginMenu")
         {
             string j = PlayerPrefs.GetString("jwt", "");
@@ -52,7 +54,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void StartGame()
     {
-        print($"playerCount in {PhotonNetwork.CurrentRoom.Name}: {PhotonNetwork.CurrentRoom.PlayerCount}. visible? {PhotonNetwork.CurrentRoom.IsVisible}");
         startedGame = true;
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
     }

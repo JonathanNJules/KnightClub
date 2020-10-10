@@ -14,13 +14,19 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        print("a player is born");
+        DontDestroyOnLoad(gameObject);
+
+        if (!photonView.IsMine) return;
+
         rb = GetComponent<Rigidbody>();
+
         CameraController cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
         cc.target = transform;
         cc.targetLook = camLookT;
         cc.enabled = true;
 
-        if (photonView.IsMine) rb.isKinematic = false;
+        rb.isKinematic = false;
     }
 
     void Update()
@@ -44,9 +50,14 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     void FixedUpdate()
     {
+        if (!photonView.IsMine) return;
+
         rb.velocity = moveVector * Time.deltaTime;
-        float ang = (moveVector.sqrMagnitude > 0.1f) ? Mathf.Atan2(moveVector.z, moveVector.x) * Mathf.Rad2Deg - 90 : 180;
-        transform.eulerAngles = new Vector3(0, -ang, 0);
+        if(moveVector.sqrMagnitude > 0.5f)
+        {
+            float ang = Mathf.Atan2(moveVector.z, moveVector.x) * Mathf.Rad2Deg - 90;
+            transform.eulerAngles = new Vector3(0, Mathf.Lerp(transform.eulerAngles.y, -ang, 10 * Time.deltaTime), 0);
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
