@@ -30,7 +30,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
         rb = GetComponent<Rigidbody>();
         cmr = GameObject.Find("Main Canvas").GetComponent<ChatMessageRelayer>();
-        print($"1: {GameObject.Find("Main Canvas")} | 2: {GameObject.Find("Main Canvas").GetComponent<ChatMessageRelayer>()} | 3: {cmr}");
         cmr.p = this;
 
         CameraController cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
@@ -50,7 +49,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     void OwnerUpdate()
     {
         // Only move if not in chat box
-        print($"later = 1: {GameObject.Find("Main Canvas")} | 2: {GameObject.Find("Main Canvas").GetComponent<ChatMessageRelayer>()} | 3: {cmr}");
         moveVector = cmr.inChatBox ? Vector3.zero : new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (moveVector.sqrMagnitude > 1) moveVector = moveVector.normalized;

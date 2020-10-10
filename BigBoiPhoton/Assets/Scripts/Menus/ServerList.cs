@@ -27,7 +27,7 @@ public class ServerList : MonoBehaviourPunCallbacks
         {
             GameObject s = Instantiate(serverElementPrefab, serverListUIParent);
             s.transform.GetChild(0).GetComponent<TMP_Text>().text = mmm.savedRoomList[i].Name;
-            s.transform.GetChild(1).GetComponent<TMP_Text>().text = $"{mmm.savedRoomList[i].PlayerCount}/{mmm.savedRoomList[i].MaxPlayers} Players";
+            s.transform.GetChild(1).GetComponent<TMP_Text>().text = $"{mmm.savedRoomList[i].PlayerCount}/{(mmm.savedRoomList[i].MaxPlayers != 0 ? mmm.savedRoomList[i].MaxPlayers.ToString() : "infinite")} Players";
             print("len: " + mmm.savedRoomList.Count + ", i: " + i);
             string theOne = mmm.savedRoomList[i].Name;
             s.GetComponent<Button>().onClick.AddListener(delegate { mmm.JoinServer(theOne); });

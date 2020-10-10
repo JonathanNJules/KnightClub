@@ -46,6 +46,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     void Update()
     {
+        print("state: " + PhotonNetwork.NetworkClientState);
         if (moveEmb1)
         {
             embellishment1.localPosition = Vector3.Lerp(embellishment1.localPosition, e1pos, 12 * Time.deltaTime);
@@ -113,7 +114,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void CreateServer()
     {
-        if(PhotonNetwork.NetworkClientState != ClientState.JoinedLobby)
+        if (PhotonNetwork.NetworkClientState != ClientState.JoinedLobby && PhotonNetwork.NetworkClientState != ClientState.ConnectedToMasterServer)
         {
             GiveErrorMessage("Tried to join a bit too early! Still connecting to lobby");
             return;
@@ -134,7 +135,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void JoinServer(string serverName)
     {
-        if (PhotonNetwork.NetworkClientState != ClientState.JoinedLobby)
+        if (PhotonNetwork.NetworkClientState != ClientState.JoinedLobby && PhotonNetwork.NetworkClientState != ClientState.ConnectedToMasterServer)
         {
             GiveErrorMessage("Tried to join a bit too early! Still connecting to lobby");
             return;
