@@ -1,5 +1,5 @@
 ﻿using Photon.Pun;
-using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private bool startedGame;
     public static GameObject player;
     public static string usersScene = "Main";
+
+    private TMP_Text currencyText;
 
     void Start()
     {
@@ -44,14 +46,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (!startedGame)
                 StartGame();
+
+            currencyText = GameObject.Find("Currency Text").GetComponent<TMP_Text>();
+            UpdateCurrency(user.currency);
         }
-        
     }
 
     private void StartGame()
     {
         startedGame = true;
         PhotonNetwork.LocalPlayer.NickName = user.username;
-        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
+        GameObject g = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
+        g.name = "Player";
+    }
+
+    public void UpdateCurrency(int newCurrency)
+    {
+        user.currency = newCurrency;
+        currencyText.text = "$" + user.currency;
     }
 }

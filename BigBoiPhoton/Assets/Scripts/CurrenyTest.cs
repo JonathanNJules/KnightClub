@@ -9,7 +9,7 @@ public class CurrenyTest : MonoBehaviour
 
     public void DoThing()
     {
-        KnightClubAPI.ChangeCurrency(int.Parse(ipf.text));
+        KnightClubAPI.ChangeCurrency(int.Parse(ipf.text), GameManager.user.username);
         ipf.text = "";
     }
 }

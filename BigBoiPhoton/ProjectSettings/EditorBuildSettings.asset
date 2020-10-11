@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LoginMenu.unity
+    path: Assets/Scenes/Menus/LoginMenu.unity
     guid: ec7850bf5ba836949b4239bed9198be7
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
     guid: 59db94e2cbd0e7847873f9810816556e
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/Rooms/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Side.unity
+    path: Assets/Scenes/Rooms/Side.unity
     guid: 9f6289b3b64b53b47aafe263d678abbe
+  - enabled: 1
+    path: Assets/Scenes/Games/Game-Maze.unity
+    guid: f83329cf37d90f5489e58fc7f4617c4e
   m_configObjects: {}

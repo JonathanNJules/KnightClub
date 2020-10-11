@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class KnightClubAPI : MonoBehaviour
 {
@@ -27,13 +28,28 @@ public class KnightClubAPI : MonoBehaviour
         return JsonUtility.FromJson<User>(response);
     }
 
-    public static void ChangeCurrency(int change)
+    public static void ChangeCurrency(int money, string username)
     {
         var form = new Dictionary<string, string>
         {
-            { "currencyChange", change.ToString() }
+            { "username", username },
+            { "money", money.ToString() }
         };
-        MakeRequest("changeCurrency", true, form);
+        
+        string response = MakeRequest("changeBalance", false, form);
+
+        print("response: " + response + " starts at " + (response.IndexOf(':') + 1));
+        string newMoniesS = response.Substring(response.IndexOf(':') + 1);
+        newMoniesS = newMoniesS.Remove(newMoniesS.Length - 2);
+
+        print("s: " + newMoniesS);
+
+        int newMonies = int.Parse(newMoniesS);
+
+        if (newMonies != -1)
+            GameManager.inst.UpdateCurrency(newMonies);
+
+        print("new money: " + response);
     }
 
     public static string LoginWithJWT(string jwt)
@@ -62,8 +78,6 @@ public class KnightClubAPI : MonoBehaviour
                 route += pair.Value;
             }
         }
-
-        print(route);
 
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"{serverLocation}/{route}");
         request.Method = isPost ? "POST" : "GET";

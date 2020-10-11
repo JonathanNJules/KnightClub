@@ -9,7 +9,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     public Transform model;
 
     public GameObject canvas;
-    private TMP_Text currencyText;
     private Animator anim;
     public Transform camLookT;
 
@@ -39,12 +38,15 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         GameManager.usersScene = scene.name;
         if (!photonView.IsMine)
         {
-            CheckForSceneMismatch();
+            CorrectSceneMismatch();
             return;
         }
 
-        Vector3 scenePos = GameObject.Find(oldScene + " Spawn").transform.position;
-        photonView.RPC("HardSetPosition", RpcTarget.All, scenePos.x, scenePos.y, scenePos.z);
+        if (!scene.name.Contains("Game"))
+        {
+            Vector3 scenePos = GameObject.Find(oldScene + " Spawn").transform.position;
+            photonView.RPC("HardSetPosition", RpcTarget.All, scenePos.x, scenePos.y, scenePos.z);
+        }
 
         InitializeScene();
     }
@@ -69,9 +71,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     {
         cmr = GameObject.Find("Main Canvas").GetComponent<ChatMessageRelayer>();
         cmr.p = this;
-
-        currencyText = GameObject.Find("Currency Text").GetComponent<TMP_Text>();
-        currencyText.text = "$" + GameManager.user.currency;
 
         CameraController cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
         cc.target = transform;
@@ -176,7 +175,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     {
         currentSceneName = newScene;
         if (photonView.IsMine == false)
-            CheckForSceneMismatch();
+            CorrectSceneMismatch();
     }
 
     [PunRPC]
@@ -194,11 +193,12 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         SceneManager.LoadScene(newScene);
     }
 
-    private void CheckForSceneMismatch()
+    private void CorrectSceneMismatch()
     {
-        if (deactivated == false && currentSceneName != GameManager.usersScene)
+        print("isDeactivated? " + deactivated + " | in game? " + GameManager.usersScene.Contains("Game"));
+        if (currentSceneName != GameManager.usersScene || GameManager.usersScene.Contains("Game"))
             Deactivate();
-        else if (deactivated == true && currentSceneName == GameManager.usersScene)
+        else if (currentSceneName == GameManager.usersScene)
             Activate();
     }
 
