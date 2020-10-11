@@ -13,11 +13,6 @@ public class KnightClubAPI : MonoBehaviour
     {
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return null;
 
-        // TEST
-        //User u = new User();
-        //u.username = email;
-        //return u;
-
         var form = new Dictionary<string, string>
         {
             {"email", email },
@@ -26,14 +21,13 @@ public class KnightClubAPI : MonoBehaviour
 
         string response = MakeRequest("login", false, form);
 
-        User u = new User { username = email}; //JsonUtility.FromJson<User>(response);
+        User u = JsonUtility.FromJson<User>(response);
 
         return u;
     }
 
     public static void ChangeCurrency(int money, string username)
     {
-        return;
         var form = new Dictionary<string, string>
         {
             { "username", username },
@@ -73,8 +67,6 @@ public class KnightClubAPI : MonoBehaviour
     {
         string jsonResponse;
 
-        return "ad";
-
         if (isPost == false && form != null)
         {
             route += "?";
@@ -91,10 +83,6 @@ public class KnightClubAPI : MonoBehaviour
 
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"{serverLocation}/{route}");
         request.Method = isPost ? "POST" : "GET";
-        request.Headers.Add("Access-Control-Allow-Credentials", "true");
-        request.Headers.Add("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
-        request.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        request.Headers.Add("Access-Control-Allow-Origin", "*");
 
         if (isPost == true && form != null)
         {
@@ -115,14 +103,21 @@ public class KnightClubAPI : MonoBehaviour
             }
         }
 
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-        using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+        try
         {
-            jsonResponse = reader.ReadToEnd();
-        }
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-        return jsonResponse;
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                jsonResponse = reader.ReadToEnd();
+            }
+
+            return jsonResponse;
+        }
+        catch
+        {
+            return null;
+        }
 
     }
 }
