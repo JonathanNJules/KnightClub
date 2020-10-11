@@ -55,6 +55,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Gameplay\Minigames\Flopper\Flopper.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Scripts\Misc\ErrorPopup.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Assets\Scripts\Gameplay\ChatMessage.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Minigames\Maze\MazeEndBlock.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Minigames\GameEnder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SceneDoor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
@@ -116,7 +117,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ChatMessageRelayer.cs" />
     <Compile Include="Assets\Scripts\Misc\CanvasFader.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Minigames\Flopper\Flopper.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Minigames\Flopper\FlopperCar.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

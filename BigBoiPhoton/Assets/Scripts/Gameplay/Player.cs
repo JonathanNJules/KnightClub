@@ -31,9 +31,16 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     private string currentSceneName = "Main";
     private bool deactivated;
 
+    public GameObject[] headGear;
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         print("just loaded " + scene.name +", and my scene is " + currentSceneName);
+
+        int chosen = Random.Range(0, 4);
+
+        for(int i = 0; i < 4; i++)
+            headGear[i].SetActive(i == chosen);
 
         GameManager.usersScene = scene.name;
         if (!photonView.IsMine)

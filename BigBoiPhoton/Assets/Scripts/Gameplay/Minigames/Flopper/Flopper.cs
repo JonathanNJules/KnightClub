@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Flopper : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameEnder e;
+
+    private int reward = 15;
+    private string returnScene = "Balcony";
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject.Find("Player").transform.position = Vector3.zero;
+        e.reward = reward;
+        e.returnScene = returnScene;
     }
 }

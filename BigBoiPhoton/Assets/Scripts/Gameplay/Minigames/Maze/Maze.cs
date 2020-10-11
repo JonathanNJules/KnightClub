@@ -9,7 +9,7 @@ public class Maze : MonoBehaviour
     public GameObject endPrefab;
     private Vector3 startPos;
 
-    private int reward = 10;
+    private int reward = 5;
     private string returnScene = "Main";
 
     void Start()
@@ -29,9 +29,9 @@ public class Maze : MonoBehaviour
                     startPos = new Vector3(i, 0, j);
                 else if (c == Color.blue)
                 {
-                    MazeEndBlock m = Instantiate(endPrefab, new Vector3(i, 0, j), Quaternion.identity).GetComponent<MazeEndBlock>();
-                    m.reward = reward;
-                    m.returnScene = returnScene;
+                    GameEnder e = Instantiate(endPrefab, new Vector3(i, 0, j), Quaternion.identity).GetComponent<GameEnder>();
+                    e.reward = reward;
+                    e.returnScene = returnScene;
                 }
             }
         }

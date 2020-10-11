@@ -25,11 +25,15 @@ public class KnightClubAPI : MonoBehaviour
         };
 
         string response = MakeRequest("login", false, form);
-        return JsonUtility.FromJson<User>(response);
+
+        User u = new User { username = email}; //JsonUtility.FromJson<User>(response);
+
+        return u;
     }
 
     public static void ChangeCurrency(int money, string username)
     {
+        return;
         var form = new Dictionary<string, string>
         {
             { "username", username },
@@ -38,7 +42,6 @@ public class KnightClubAPI : MonoBehaviour
         
         string response = MakeRequest("changeBalance", false, form);
 
-        print("response: " + response + " starts at " + (response.IndexOf(':') + 1));
         string newMoniesS = response.Substring(response.IndexOf(':') + 1);
         newMoniesS = newMoniesS.Remove(newMoniesS.Length - 2);
 
@@ -50,6 +53,11 @@ public class KnightClubAPI : MonoBehaviour
             GameManager.inst.UpdateCurrency(newMonies);
 
         print("new money: " + response);
+    }
+
+    public static void BuyHeadwear()
+    {
+        //string response = "";
     }
 
     public static string LoginWithJWT(string jwt)
@@ -64,6 +72,8 @@ public class KnightClubAPI : MonoBehaviour
     private static string MakeRequest(string route, bool isPost = false, Dictionary<string, string> form = null)
     {
         string jsonResponse;
+
+        return "ad";
 
         if (isPost == false && form != null)
         {
@@ -81,7 +91,10 @@ public class KnightClubAPI : MonoBehaviour
 
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"{serverLocation}/{route}");
         request.Method = isPost ? "POST" : "GET";
-        //request.Headers.Add(HttpRequestHeader.Authorization, $"Bearer {jwt}");
+        request.Headers.Add("Access-Control-Allow-Credentials", "true");
+        request.Headers.Add("Access-Control-Allow-Headers", "Accept, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
+        request.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        request.Headers.Add("Access-Control-Allow-Origin", "*");
 
         if (isPost == true && form != null)
         {
@@ -102,21 +115,14 @@ public class KnightClubAPI : MonoBehaviour
             }
         }
 
-        try
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+        using (StreamReader reader = new StreamReader(response.GetResponseStream()))
         {
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
-            {
-                jsonResponse = reader.ReadToEnd();
-            }
-
-            return jsonResponse;
-
+            jsonResponse = reader.ReadToEnd();
         }
-        catch
-        {
-            return null;
-        }
+
+        return jsonResponse;
+
     }
 }
