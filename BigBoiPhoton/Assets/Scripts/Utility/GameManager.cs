@@ -1,16 +1,16 @@
-﻿using ExitGames.Client.Photon;
-using Photon.Pun;
-using UnityEditor;
+﻿using Photon.Pun;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
-    public static string username;
+    public static User user;
     public static string jwt;
     public static GameManager inst;
     private bool startedGame;
     public static GameObject player;
+    public static string usersScene = "Main";
 
     void Start()
     {
@@ -22,18 +22,15 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         DontDestroyOnLoad(gameObject);
-        PlayerPrefs.DeleteAll();
-
-        //PhotonNetwork.AutomaticallySyncScene = true;
 
         if(SceneManager.GetActiveScene().name == "LoginMenu")
         {
+            PlayerPrefs.DeleteAll();
             string j = PlayerPrefs.GetString("jwt", "");
-            string u = KnightClubAPI.LoginWithJWT(jwt);
-            if(u != null)
+            string e = KnightClubAPI.LoginWithJWT(jwt);
+            if(e != null)
             {
                 jwt = j;
-                username = u;
                 StartCoroutine(GameObject.Find("Login Manager").GetComponent<LoginManager>().TransitionToMainMenu());
             }
         }
@@ -43,19 +40,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Main" && !startedGame)
-            StartGame();
-    }
-
-    void Update()
-    {
+        if(scene.name != "LoginMenu" && scene.name != "MainMenu")
+        {
+            if (!startedGame)
+                StartGame();
+        }
         
     }
 
     private void StartGame()
     {
         startedGame = true;
-        PhotonNetwork.LocalPlayer.NickName = username;
+        PhotonNetwork.LocalPlayer.NickName = user.username;
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
     }
 }

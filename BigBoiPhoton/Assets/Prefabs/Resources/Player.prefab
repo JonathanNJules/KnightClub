@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 5398864766313972731}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 8983732822001332376}
+  canvas: {fileID: 1398843603122650684}
   camLookT: {fileID: 5398864766803913597}
   moveSpeed: 650
   networkSmoothingSpeed: 10

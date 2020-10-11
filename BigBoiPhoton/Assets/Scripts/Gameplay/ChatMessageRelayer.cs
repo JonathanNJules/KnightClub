@@ -6,8 +6,13 @@ public class ChatMessageRelayer : MonoBehaviour
 {
     public Player p;
     public TMP_InputField chatMessageIPF;
-    public EventSystem e;
+    private EventSystem e;
     public bool inChatBox;
+
+    void Start()
+    {
+        e = EventSystem.current;
+    }
 
     void Update()
     {

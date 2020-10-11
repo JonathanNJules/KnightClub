@@ -5,19 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
 {
-    public TMP_InputField usernameIPF, passwordIPF;
+    public TMP_InputField emailIPF, passwordIPF;
     public CanvasFader cf;
+
+    private void Start()
+    {
+        //Login();
+    }
     public void Login()
     {
-        string u = usernameIPF.text;
+        string e = emailIPF.text;
         string p = passwordIPF.text;
 
-        string j = KnightClubAPI.LoginWithUsernamePassword(u, p);
+        //e = "testuser";
+        //p = "asd";
 
-        if(j != null)
+        User u = KnightClubAPI.LoginWithUsernamePassword(e, p);
+
+        if (u != null)
         {
-            GameManager.username = u;
-            GameManager.jwt = j;
+            GameManager.user = u;
             StartCoroutine(TransitionToMainMenu());
         }
     }

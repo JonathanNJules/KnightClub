@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - LoginManager
     - MainMenuManager
     - Player
+    - SceneDoor
     - ServerList
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -43,12 +44,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationBlendTree.Node
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -274,6 +273,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14348}
     - Class: 114
       Script: {instanceID: 14444}
+    - Class: 114
+      Script: {instanceID: 16038}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -368,6 +369,79 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 225
+      Script: {instanceID: 0}
+    Assets/Scenes/Side.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11828}
+    - Class: 114
+      Script: {instanceID: 11858}
+    - Class: 114
+      Script: {instanceID: 12134}
+    - Class: 114
+      Script: {instanceID: 12158}
+    - Class: 114
+      Script: {instanceID: 12298}
+    - Class: 114
+      Script: {instanceID: 12418}
+    - Class: 114
+      Script: {instanceID: 12670}
+    - Class: 114
+      Script: {instanceID: 12818}
+    - Class: 114
+      Script: {instanceID: 13556}
+    - Class: 114
+      Script: {instanceID: 13856}
+    - Class: 114
+      Script: {instanceID: 13936}
+    - Class: 114
+      Script: {instanceID: 14348}
+    - Class: 114
+      Script: {instanceID: 14444}
+    - Class: 114
+      Script: {instanceID: 16038}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -1530,7 +1604,7 @@ ScriptsOnlyBuild:
     className: SkewTextExample
   - hash:
       serializedVersion: 2
-      Hash: 47c9d88ddb687d9b40d36958543235e1
+      Hash: 8b39930af654cda073225e6841afba8c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LoginManager
@@ -1942,9 +2016,16 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 32fb934abf2358cd5d820de7f6272d18
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneDoor
   platform: 20
   scenePathNames:
   - Assets/Scenes/LoginMenu.unity
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Main.unity
+  - Assets/Scenes/Side.unity
   playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds

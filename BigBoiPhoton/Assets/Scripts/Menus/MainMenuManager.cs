@@ -31,7 +31,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     void Start()
     {
         buttonsAndTitleCF.Fade(true, 2);
-        welcomeText.text = $"Welcome, {GameManager.username}!";
+        welcomeText.text = $"Welcome, {GameManager.user.username}!";
 
         e1pos = new Vector3(-356, 62, -5);
         e1rot = new Quaternion(-0.03201738f, 0.06985322f, 0.05429835f, 0.9955637f);
@@ -46,7 +46,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        print("state: " + PhotonNetwork.NetworkClientState);
         if (moveEmb1)
         {
             embellishment1.localPosition = Vector3.Lerp(embellishment1.localPosition, e1pos, 12 * Time.deltaTime);

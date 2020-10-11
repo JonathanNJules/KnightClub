@@ -1,14 +1,18 @@
 ﻿using Photon.Pun;
-using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviourPunCallbacks, IPunObservable
 {
     private Rigidbody rb;
     public Transform model;
+
+    public GameObject canvas;
+    private TMP_Text currencyText;
     private Animator anim;
     public Transform camLookT;
+
     private Vector3 moveVector;
     public float moveSpeed;
 
@@ -24,8 +28,30 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject chatMessagePrefab;
     private ChatMessageRelayer cmr;
 
-    void Start()
+    private string oldScene;
+    private string currentSceneName = "Main";
+    private bool deactivated;
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        print("just loaded " + scene.name +", and my scene is " + currentSceneName);
+
+        GameManager.usersScene = scene.name;
+        if (!photonView.IsMine)
+        {
+            CheckForSceneMismatch();
+            return;
+        }
+
+        Vector3 scenePos = GameObject.Find(oldScene + " Spawn").transform.position;
+        photonView.RPC("HardSetPosition", RpcTarget.All, scenePos.x, scenePos.y, scenePos.z);
+
+        InitializeScene();
+    }
+
+    public override void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(gameObject);
 
         nameText.text = photonView.Owner.NickName;
@@ -34,15 +60,23 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         if (!photonView.IsMine) return;
 
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+
+        InitializeScene();
+    }
+
+    private void InitializeScene()
+    {
         cmr = GameObject.Find("Main Canvas").GetComponent<ChatMessageRelayer>();
         cmr.p = this;
+
+        currencyText = GameObject.Find("Currency Text").GetComponent<TMP_Text>();
+        currencyText.text = "$" + GameManager.user.currency;
 
         CameraController cc = GameObject.Find("Main Camera").GetComponent<CameraController>();
         cc.target = transform;
         cc.targetLook = camLookT;
         cc.enabled = true;
-
-        rb.isKinematic = false;
     }
 
     void Update()
@@ -50,8 +84,9 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         anim.SetFloat("MovementMag", networkedMovementMag);
         anim.SetBool("CutEmote", networkedCutEmote);
         anim.SetInteger("EmoteIndex", networkedEmoteIndex);
+
         if (photonView.IsMine) OwnerUpdate();
-        else NetworkedUpdate();
+        else if (deactivated == false) NetworkedUpdate();
     }
 
     void OwnerUpdate()
@@ -134,5 +169,49 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             Destroy(chatMessageParent.GetChild(0).gameObject);
 
         Instantiate(chatMessagePrefab, chatMessageParent).GetComponent<ChatMessage>().DoChatMessage(message);
+    }
+
+    [PunRPC]
+    public void ChangeNetworkScene(string newScene)
+    {
+        currentSceneName = newScene;
+        if (photonView.IsMine == false)
+            CheckForSceneMismatch();
+    }
+
+    [PunRPC]
+    public void HardSetPosition(float newX, float newY, float newZ)
+    {
+        transform.position = new Vector3(newX, newY, newZ);
+    }
+
+    public void ChangeScenes(string newScene)
+    {
+        if (!photonView.IsMine) return;
+
+        oldScene = SceneManager.GetActiveScene().name;
+        photonView.RPC("ChangeNetworkScene", RpcTarget.All, newScene);
+        SceneManager.LoadScene(newScene);
+    }
+
+    private void CheckForSceneMismatch()
+    {
+        if (deactivated == false && currentSceneName != GameManager.usersScene)
+            Deactivate();
+        else if (deactivated == true && currentSceneName == GameManager.usersScene)
+            Activate();
+    }
+
+    private void Deactivate()
+    {
+        deactivated = true;
+        model.gameObject.SetActive(false);
+        canvas.SetActive(false);
+    }
+    private void Activate()
+    {
+        deactivated = false;
+        model.gameObject.SetActive(true);
+        canvas.SetActive(true);
     }
 }

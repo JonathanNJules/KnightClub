@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d888795c86657a348ba01269a90b10f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameIPF: {fileID: 1594604209}
+  emailIPF: {fileID: 1594604209}
   passwordIPF: {fileID: 563260987}
   cf: {fileID: 1578767365}
 --- !u!4 &143329096
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter username here...
+  m_text: Enter email here...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 1284861367}
   - component: {fileID: 1284861366}
   m_Layer: 5
-  m_Name: '"Username"'
+  m_Name: '"Email"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Username
+  m_text: Email
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 1594604210}
   - component: {fileID: 1594604209}
   m_Layer: 5
-  m_Name: Username Text Box
+  m_Name: Email Text Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
