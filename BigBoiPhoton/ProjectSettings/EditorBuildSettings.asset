@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Rooms/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Rooms/Side.unity
+    path: Assets/Scenes/Rooms/Outside.unity
     guid: 9f6289b3b64b53b47aafe263d678abbe
   - enabled: 1
-    path: Assets/Scenes/Games/Game-Maze.unity
+    path: Assets/Scenes/Rooms/Balcony.unity
+    guid: c90be83355a70a241bf50727a200b427
+  - enabled: 1
+    path: Assets/Scenes/Games/Game-Flopper.unity
     guid: f83329cf37d90f5489e58fc7f4617c4e
   m_configObjects: {}

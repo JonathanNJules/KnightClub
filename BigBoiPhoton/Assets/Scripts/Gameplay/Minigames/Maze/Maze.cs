@@ -3,7 +3,8 @@
 public class Maze : MonoBehaviour
 {
     public Transform floor;
-    public Texture2D map;
+    public Texture2D[] maps;
+    private Texture2D map;
     public GameObject wallPrefab;
     public GameObject endPrefab;
     private Vector3 startPos;
@@ -13,15 +14,15 @@ public class Maze : MonoBehaviour
 
     void Start()
     {
+        map = maps[Random.Range(0, maps.Length)];
         floor.localScale = new Vector3(map.width, 1, map.height);
         floor.position = new Vector3(map.width / 2, -0.5f, map.height / 2);
-        print($"w: {map.width} h: {map.height}");
-        for(int i = 0; i < map.width; i++)
+
+        for (int i = 0; i < map.width; i++)
         {
-            for(int j = 0; j < map.height; j++)
+            for (int j = 0; j < map.height; j++)
             {
                 Color c = map.GetPixel(i, j);
-                print($"c: {c}");
                 if (c == Color.black)
                     Instantiate(wallPrefab, new Vector3(i, 1, j), Quaternion.identity);
                 else if (c == Color.red)
@@ -35,7 +36,6 @@ public class Maze : MonoBehaviour
             }
         }
 
-        print("sp: " + startPos);
         GameObject.Find("Player").transform.position = startPos;
     }
 }

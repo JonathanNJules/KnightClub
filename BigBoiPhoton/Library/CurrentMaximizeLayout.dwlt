@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 2509
+  controlID: 11031
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 2483
+  controlID: 11012
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -202,9 +202,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -29.729996, y: 0.0000000023196984, z: -15.129987}
+    m_Target: {x: 46.28648, y: -4.320423, z: 10.993144}
     speed: 2
-    m_Value: {x: -29.729996, y: 0.0000000023196984, z: -15.129987}
+    m_Value: {x: 46.28648, y: -4.320423, z: 10.993144}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -251,17 +251,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.2343488, y: -0.14805806, z: 0.036133762, w: 0.960134}
+    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
-    m_Value: {x: 0.23434839, y: -0.14805779, z: 0.0361337, w: 0.9601323}
+    m_Value: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_Size:
-    m_Target: 10
+    m_Target: 33.882385
     speed: 2
-    m_Value: 10
+    m_Value: 33.882385
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 2510
+  controlID: 11032
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -389,7 +389,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3a9bffff5e9bffffd29dffff5e9efffffc9effff1c9fffff309fffffacacffffd0acffff44afffffd0afffff6eb0ffff8eb0ffffa2b0ffff86bbffffaabbffff1ebeffffaabeffff48bfffff68bfffff7cbfffffa8cbffffcccbffff44ceffffd4ceffff76cfffff9acfffffb2cfffff02fbffff
+      m_ExpandedIDs: 6829feff982dfeff9ec3feffc6c3feff12c4feff6c10ffff08abffffacadffff0cb1ffffecb4ffffa8b6ffffd2b6ffff40b7ffff5cc1ffff7ec1ffffe6c1ffffc8e3ffff18e5ffff88e5ffff46f6ffff60fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -477,20 +477,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Textures/Mazes
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Textures/Mazes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jnjju\Documents\KnightClub\BigBoiPhoton
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a3c0000
-    m_LastClickedID: 15418
+    m_SelectedIDs: 583c0000
+    m_LastClickedID: 15448
     m_ExpandedIDs: 00000000363c0000383c00003a3c00003c3c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
