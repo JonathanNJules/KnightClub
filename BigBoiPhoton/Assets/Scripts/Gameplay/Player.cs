@@ -21,6 +21,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     private int networkedEmoteIndex;
     private bool networkedCutEmote;
     public float networkSmoothingSpeed;
+    public int networkedHeadwearIndex;
 
     public TMP_Text nameText;
     public Transform chatMessageParent;
@@ -37,10 +38,8 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     {
         print("just loaded " + scene.name +", and my scene is " + currentSceneName);
 
-        int chosen = Random.Range(0, 4);
-
-        for(int i = 0; i < 4; i++)
-            headGear[i].SetActive(i == chosen);
+        if (photonView.IsMine)
+            networkedHeadwearIndex = Random.Range(0, 4);
 
         GameManager.usersScene = scene.name;
         if (!photonView.IsMine)
@@ -90,6 +89,8 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         anim.SetFloat("MovementMag", networkedMovementMag);
         anim.SetBool("CutEmote", networkedCutEmote);
         anim.SetInteger("EmoteIndex", networkedEmoteIndex);
+        for (int i = 0; i < 4; i++)
+            headGear[i].SetActive(i == networkedHeadwearIndex);
 
         if (photonView.IsMine) OwnerUpdate();
         else if (deactivated == false) NetworkedUpdate();
@@ -152,6 +153,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(networkedMovementMag);
             stream.SendNext(networkedEmoteIndex);
             stream.SendNext(networkedCutEmote);
+            stream.SendNext(networkedHeadwearIndex);
         }
         else
         {
@@ -160,6 +162,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             networkedMovementMag = (float)stream.ReceiveNext();
             networkedEmoteIndex = (int)stream.ReceiveNext();
             networkedCutEmote = (bool)stream.ReceiveNext();
+            networkedHeadwearIndex = (int)stream.ReceiveNext();
         }
     }
 

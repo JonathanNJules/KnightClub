@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 8343
+  controlID: 763
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 8344
+  controlID: 691
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 8369
+  controlID: 764
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.029868871, y: 3.2696292, z: 0.04584326}
+    m_Target: {x: -0.029869065, y: 3.5506299, z: 0.045844167}
     speed: 2
-    m_Value: {x: -0.029868871, y: 3.2696292, z: 0.04584326}
+    m_Value: {x: -0.029869065, y: 3.5506299, z: 0.045844167}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -478,13 +478,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.006081236, y: 0.9842524, z: 0.03456436, w: 0.17331015}
+    m_Target: {x: -0.00024286944, y: -0.99798495, z: -0.06355946, w: 0.0036036954}
     speed: 2
-    m_Value: {x: -0.006081236, y: 0.98425233, z: 0.03456436, w: 0.17331015}
+    m_Value: {x: -0.00033055295, y: -0.99805933, z: -0.06206116, w: 0.005101102}
   m_Size:
-    m_Target: 1.5662798
+    m_Target: 0.7398588
     speed: 2
-    m_Value: 1.5662798
+    m_Value: 0.73985934
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -539,21 +539,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b20cffffd60cffff5412ffffa012fffffa12ffff4c13ffffb413ffffd413ffffe813ffff3c44ffffcc44ffffd444ffffd644ffffe444fffff244fffffc44ffff0a45ffff3245ffff3a45ffff4045ffff4845ffff6e45ffffce46fffff246ffff704cffffbc4cffff164dffff684dffffd04dfffff04dffff044effff364fffff5a4fffffd854ffff2455ffff7e55ffffd055ffff3856ffff5856ffff6c56ffffac5affffd05affff4e60ffff9a60fffff460ffff4661ffffae61ffffce61ffffe261ffffd26bffff2474ffff1a8fffff4290ffff20a1ffff44a1ffffc2a6ffff0ea7ffff68a7ffffbaa7ffff22a8ffff42a8ffff56a8fffff2aaffff16abffff94b0ffffe0b0ffff3ab1ffff8cb1fffff4b1ffff14b2ffff28b2ffff2ab3ffff4eb3ffffc8b8ffff14b9ffff6eb9ffffc0b9ffff28baffff38baffff4cbaffff3abbffff50bbffffeacbffff5ed1ffff82d1ffff00d7ffff4cd7ffffa6d7fffff8d7ffff60d8ffff80d8ffff94d8fffffee1ffffcee6ffff2af1ffff4ef1ffffd0f6ffff20f7ffff7ef7ffffd4f7ffff40f8ffff64f8ffff7cf8ffff60fbffff
+      m_ExpandedIDs: 9ed9ffffc2d9ffff3cdfffff88dfffffe2dfffff34e0ffff9ce0ffffbce0ffffd0e0ffff82e8ffff84e8ffff88e8ffff90e8ffff9ee8ffffa0e8ffffc0e8ffffd6e8ffffe6e8ffffeee8fffff6e8ffff06e9ffff3ce9ffffacfaffffa03b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Tophat
+        m_OriginalName: Tophat
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -5858
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -601,35 +601,35 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Headwear
+    - Assets/Prefabs/Resources
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Headwear
+  - Assets/Prefabs/Resources
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jnjju\Documents\KnightClub\BigBoiPhoton
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 40540000
-    m_LastClickedID: 21568
-    m_ExpandedIDs: 00000000323c0000343c0000363c0000383c00003a3c00003c3c00004c3c000000ca9a3b
+    m_SelectedIDs: 823c0000
+    m_LastClickedID: 15490
+    m_ExpandedIDs: 00000000443c0000463c0000483c00004a3c00004c3c00004e3c0000603c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Photon
+      m_OriginalName: Photon
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 15454
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -643,7 +643,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000323c0000343c0000363c0000383c00003a3c00003c3c000000ca9a3b
+    m_ExpandedIDs: 00000000443c0000463c0000483c00004a3c00004c3c00004e3c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

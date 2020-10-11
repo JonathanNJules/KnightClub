@@ -396,6 +396,7 @@ MonoBehaviour:
   camLookT: {fileID: 5398864766803913597}
   moveSpeed: 650
   networkSmoothingSpeed: 10
+  networkedHeadwearIndex: 0
   nameText: {fileID: 765794625014982026}
   chatMessageParent: {fileID: 694344203}
   chatMessagePrefab: {fileID: 5236663590740010826, guid: 5229e8c3bf10fd64fb4fe44102ecd4a6, type: 3}
@@ -524,15 +525,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1741494042722581699, guid: e908ca28003aa034f95318206c57863f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1741494042722581699, guid: e908ca28003aa034f95318206c57863f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.281
+      value: 0.314
       objectReference: {fileID: 0}
     - target: {fileID: 1741494042722581699, guid: e908ca28003aa034f95318206c57863f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1741494042722581699, guid: e908ca28003aa034f95318206c57863f, type: 3}
       propertyPath: m_LocalRotation.x
