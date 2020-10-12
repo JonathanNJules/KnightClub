@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - Player
     - SceneDoor
     - ServerList
+    - StoreTrigger
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -122,11 +123,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -197,11 +198,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -324,21 +325,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13872}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 13956}
+      Script: {instanceID: 13958}
     - Class: 114
-      Script: {instanceID: 14174}
+      Script: {instanceID: 14176}
     - Class: 114
-      Script: {instanceID: 14312}
+      Script: {instanceID: 14314}
     - Class: 114
-      Script: {instanceID: 14358}
+      Script: {instanceID: 14360}
     - Class: 114
-      Script: {instanceID: 14448}
+      Script: {instanceID: 14450}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14458}
     - Class: 114
-      Script: {instanceID: 14492}
+      Script: {instanceID: 14494}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -421,13 +422,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14448}
+      Script: {instanceID: 14450}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14458}
     - Class: 114
-      Script: {instanceID: 14474}
+      Script: {instanceID: 14476}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -498,11 +499,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -573,11 +574,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -648,11 +649,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13942}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14456}
+      Script: {instanceID: 14362}
+    - Class: 114
+      Script: {instanceID: 14450}
+    - Class: 114
+      Script: {instanceID: 14458}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -668,6 +673,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
@@ -1802,7 +1809,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: c975db0317561b359e0bb18311f8f429
+      Hash: e91338f75120d064f235fbdca4e64e14
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1848,6 +1855,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: EventSystemSpawner
+  - hash:
+      serializedVersion: 2
+      Hash: 75ffdf16a33da522f73c4440514d7cfd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StoreTrigger
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825

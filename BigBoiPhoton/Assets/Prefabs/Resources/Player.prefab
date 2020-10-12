@@ -395,6 +395,7 @@ MonoBehaviour:
   canvas: {fileID: 1398843603122650684}
   camLookT: {fileID: 5398864766803913597}
   moveSpeed: 650
+  isReal: 0
   networkSmoothingSpeed: 10
   networkedHeadwearIndex: 0
   nameText: {fileID: 765794625014982026}

@@ -63,6 +63,7 @@
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
     <Compile Include="Assets\Scripts\Menus\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ChatMessage.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Minigames\Flopper\FlopperCar.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Minigames\GameEnder.cs" />
@@ -117,7 +118,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ChatMessageRelayer.cs" />
     <Compile Include="Assets\Scripts\Misc\CanvasFader.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Minigames\Flopper\FlopperCar.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\StoreTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

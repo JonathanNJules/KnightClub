@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using System.Text;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class KnightClubAPI : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class KnightClubAPI : MonoBehaviour
 
         string response = MakeRequest("login", false, form);
 
-        User u = JsonUtility.FromJson<User>(response);
+        User u = new User { username = email }; //JsonUtility.FromJson<User>(response);
 
         return u;
     }
@@ -65,6 +64,7 @@ public class KnightClubAPI : MonoBehaviour
 
     private static string MakeRequest(string route, bool isPost = false, Dictionary<string, string> form = null)
     {
+        return null;
         string jsonResponse;
 
         if (isPost == false && form != null)

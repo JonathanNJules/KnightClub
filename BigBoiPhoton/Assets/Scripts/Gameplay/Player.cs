@@ -14,6 +14,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     private Vector3 moveVector;
     public float moveSpeed;
+    public bool isReal;
 
     private Vector3 networkedPos;
     private Quaternion networkedRot;
@@ -69,6 +70,8 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
+
+        isReal = photonView.IsMine;
 
         InitializeScene();
     }
