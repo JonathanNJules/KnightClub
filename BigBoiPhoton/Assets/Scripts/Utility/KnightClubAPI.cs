@@ -27,6 +27,7 @@ public class KnightClubAPI : MonoBehaviour
 
     public static void ChangeCurrency(int money, string username)
     {
+        return;
         var form = new Dictionary<string, string>
         {
             { "username", username },
