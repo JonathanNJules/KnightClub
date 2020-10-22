@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private TMP_Text currencyText;
 
+    public TMP_Text TestText;
+
     void Start()
     {
         if (inst == null) inst = this;
@@ -65,5 +67,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         user.currency = newCurrency;
         currencyText.text = "$" + user.currency;
+    }
+
+    public void SetTestText(string t)
+    {
+        TestText.text = t;
     }
 }

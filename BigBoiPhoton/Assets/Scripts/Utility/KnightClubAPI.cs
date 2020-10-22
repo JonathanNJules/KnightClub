@@ -7,6 +7,7 @@ using UnityEngine;
 public class KnightClubAPI : MonoBehaviour
 {
     private static readonly string serverLocation = "https://knightclub-qpzebhklia-ue.a.run.app/api";
+    private static bool backendDisabled = false;
 
     public static User LoginWithUsernamePassword(string email, string password)
     {
@@ -20,14 +21,16 @@ public class KnightClubAPI : MonoBehaviour
 
         string response = MakeRequest("login", false, form);
 
-        User u = new User { username = email }; //JsonUtility.FromJson<User>(response);
+        User u = JsonUtility.FromJson<User>(response); 
+        
+        if(backendDisabled) u = new User { username = email };
 
         return u;
     }
 
     public static void ChangeCurrency(int money, string username)
     {
-        return;
+        if(backendDisabled) return;
         var form = new Dictionary<string, string>
         {
             { "username", username },
@@ -65,7 +68,7 @@ public class KnightClubAPI : MonoBehaviour
 
     private static string MakeRequest(string route, bool isPost = false, Dictionary<string, string> form = null)
     {
-        return null;
+        if(backendDisabled) return null;
         string jsonResponse;
 
         if (isPost == false && form != null)
@@ -82,7 +85,7 @@ public class KnightClubAPI : MonoBehaviour
             }
         }
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"{serverLocation}/{route}");
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://server.test-cors.org/server?id=8579220&enable=true&status=200&credentials=false");//($"{ serverLocation}/{route}");
         request.Method = isPost ? "POST" : "GET";
 
         if (isPost == true && form != null)
@@ -113,10 +116,15 @@ public class KnightClubAPI : MonoBehaviour
                 jsonResponse = reader.ReadToEnd();
             }
 
+            print("response: " + jsonResponse);
+            return null;
+
             return jsonResponse;
         }
         catch
+        
         {
+            print("AAAAH");
             return null;
         }
 
