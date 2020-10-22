@@ -2056,6 +2056,10 @@ PrefabInstance:
       propertyPath: testText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8611007984909850187, guid: f1943dba278dd1e4884c7a20a8318ea4, type: 3}
+      propertyPath: TestText
+      value: 
+      objectReference: {fileID: 1807857712}
     - target: {fileID: 8611007984909850190, guid: f1943dba278dd1e4884c7a20a8318ea4, type: 3}
       propertyPath: m_Name
       value: GameManager
