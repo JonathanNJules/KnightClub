@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.NickName = user.username;
         GameObject g = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
         g.name = "Player";
-        g.GetComponent<Player>().photonView.RPC("SetHeadwear", RpcTarget.All, user.shirt);
+        g.GetComponent<Player>().photonView.RPC("SetHeadwear", RpcTarget.AllBuffered, user.shirt);
     }
 
     public void UpdateCurrency(int newCurrency)

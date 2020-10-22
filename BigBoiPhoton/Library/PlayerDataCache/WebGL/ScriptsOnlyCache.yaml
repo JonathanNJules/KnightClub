@@ -28,8 +28,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -2296,4 +2294,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Rooms/Balcony.unity
   - Assets/Scenes/Games/Game-Maze.unity
   - Assets/Scenes/Games/Game-Flopper.unity
-  playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds/Prod
+  playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds/Dev
