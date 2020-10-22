@@ -41,6 +41,7 @@ MonoBehaviour:
   - SendChatMessage
   - ChangeNetworkScene
   - HardSetPosition
+  - SetHeadwear
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

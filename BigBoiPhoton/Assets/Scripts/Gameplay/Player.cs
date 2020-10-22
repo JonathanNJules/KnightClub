@@ -33,7 +33,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     private string currentSceneName = "Main";
     private bool deactivated;
 
-    public GameObject[] headGear;
+    public Transform headwearParent;
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -92,8 +92,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         anim.SetFloat("MovementMag", networkedMovementMag);
         anim.SetBool("CutEmote", networkedCutEmote);
         anim.SetInteger("EmoteIndex", networkedEmoteIndex);
-        for (int i = 0; i < 4; i++)
-            headGear[i].SetActive(i == networkedHeadwearIndex);
 
         if (photonView.IsMine) OwnerUpdate();
         else if (deactivated == false) NetworkedUpdate();
@@ -195,6 +193,17 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     public void HardSetPosition(float newX, float newY, float newZ)
     {
         transform.position = new Vector3(newX, newY, newZ);
+    }
+
+    [PunRPC]
+    public void SetHeadwear(string headwear)
+    {
+        for(int i = 0; i < headwearParent.childCount; i++)
+        {
+            GameObject g = headwearParent.GetChild(i).gameObject;
+            print(g.name + " is " + headwear + "? " + (g.name == headwear));
+;            g.gameObject.SetActive(g.name == headwear);
+        }
     }
 
     public void ChangeScenes(string newScene)

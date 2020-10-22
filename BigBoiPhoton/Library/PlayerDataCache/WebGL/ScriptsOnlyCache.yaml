@@ -1809,7 +1809,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: e91338f75120d064f235fbdca4e64e14
+      Hash: affe611b9a4d810f6e8bc4708714d0fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -2296,4 +2296,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Rooms/Balcony.unity
   - Assets/Scenes/Games/Game-Maze.unity
   - Assets/Scenes/Games/Game-Flopper.unity
-  playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds
+  playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds/Prod

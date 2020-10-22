@@ -42,6 +42,11 @@ public class KnightClubAPI : MonoBehaviour
         instance.StartCoroutine(MakeRequest("changeBalance", postRequestMethod, false, form));
     }
 
+    public static void GetItems(Action<string> postMethodRequest, string itemType)
+    {
+        instance.StartCoroutine(MakeRequest("itemlist", postMethodRequest, false));
+    }
+
     public static void BuyHeadwear()
     {
         //string response = "";
@@ -73,13 +78,11 @@ public class KnightClubAPI : MonoBehaviour
             }
         }
 
-        if (isPost == true && form != null)
+        if (form != null)
         {
+            formData = new List<IMultipartFormSection>();
             foreach (KeyValuePair<string, string> formEntry in form)
-            {
-                formData = new List<IMultipartFormSection>();
-                formData.Add(new MultipartFormFileSection($"\"{formEntry.Key}\"", "\"{formEntry.Value}\""));
-            }
+                formData.Add(new MultipartFormFileSection($"\"{formEntry.Key}\"", $"\"{formEntry.Value}\""));
         }
 
         UnityWebRequest uwr;
