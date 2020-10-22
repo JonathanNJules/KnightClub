@@ -7,10 +7,25 @@ public class GameEnder : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag.Equals("Player"))
+        if (other.tag.Equals("Player"))
         {
-            KnightClubAPI.ChangeCurrency(reward, GameManager.user.username);
+            KnightClubAPI.ChangeCurrency(AddedCurrency, reward, GameManager.user.username);
             other.GetComponent<Player>().ChangeScenes(returnScene);
         }
+    }
+
+    public void AddedCurrency(string res)
+    {
+        string newMoniesS = res.Substring(res.IndexOf(':') + 1);
+        newMoniesS = newMoniesS.Remove(newMoniesS.Length - 2);
+
+        print("s: " + newMoniesS);
+
+        int newMonies = int.Parse(newMoniesS);
+
+        if (newMonies != -1)
+            GameManager.inst.UpdateCurrency(newMonies);
+
+        print("new money: " + res);
     }
 }

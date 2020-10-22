@@ -17,11 +17,12 @@ public class LoginManager : MonoBehaviour
         string e = emailIPF.text;
         string p = passwordIPF.text;
 
-        //e = "testuser";
-        //p = "asd";
+        KnightClubAPI.LoginWithUsernamePassword(GotLogin, e, p);
+    }
 
-        User u = KnightClubAPI.LoginWithUsernamePassword(e, p);
-
+    public void GotLogin(string res)
+    {
+        User u = JsonUtility.FromJson<User>(res);
         if (u != null)
         {
             GameManager.user = u;

@@ -1,17 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
-using System.Net;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class KnightClubAPI : MonoBehaviour
 {
     private static readonly string serverLocation = "https://knightclub-qpzebhklia-ue.a.run.app/api";
-    private static bool backendDisabled = false;
 
-    public static User LoginWithUsernamePassword(string email, string password)
+    public static KnightClubAPI instance;
+
+    private void Start()
     {
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) return null;
+        instance = this;
+    }
+
+    public static void LoginWithUsernamePassword(Action<string> postRequestMethod, string email, string password)
+    {
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            return;
 
         var form = new Dictionary<string, string>
         {
@@ -19,37 +28,18 @@ public class KnightClubAPI : MonoBehaviour
             {"password", password}
         };
 
-        string response = MakeRequest("login", false, form);
-
-        User u = JsonUtility.FromJson<User>(response); 
-        
-        if(backendDisabled) u = new User { username = email };
-
-        return u;
+        instance.StartCoroutine(MakeRequest("login", postRequestMethod, false, form));
     }
 
-    public static void ChangeCurrency(int money, string username)
+    public static void ChangeCurrency(Action<string> postRequestMethod,  int money, string username)
     {
-        if(backendDisabled) return;
         var form = new Dictionary<string, string>
         {
             { "username", username },
             { "money", money.ToString() }
         };
-        
-        string response = MakeRequest("changeBalance", false, form);
 
-        string newMoniesS = response.Substring(response.IndexOf(':') + 1);
-        newMoniesS = newMoniesS.Remove(newMoniesS.Length - 2);
-
-        print("s: " + newMoniesS);
-
-        int newMonies = int.Parse(newMoniesS);
-
-        if (newMonies != -1)
-            GameManager.inst.UpdateCurrency(newMonies);
-
-        print("new money: " + response);
+        instance.StartCoroutine(MakeRequest("changeBalance", postRequestMethod, false, form));
     }
 
     public static void BuyHeadwear()
@@ -65,11 +55,9 @@ public class KnightClubAPI : MonoBehaviour
         return "RestoredUsernameFromJWT";
     }
 
-
-    private static string MakeRequest(string route, bool isPost = false, Dictionary<string, string> form = null)
+    private static IEnumerator MakeRequest(string route, Action<string> postRequestMethod, bool isPost = false, Dictionary<string, string> form = null)
     {
-        if(backendDisabled) return null;
-        string jsonResponse;
+        List<IMultipartFormSection> formData = null;
 
         if (isPost == false && form != null)
         {
@@ -85,48 +73,31 @@ public class KnightClubAPI : MonoBehaviour
             }
         }
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://server.test-cors.org/server?id=8579220&enable=true&status=200&credentials=false");//($"{ serverLocation}/{route}");
-        request.Method = isPost ? "POST" : "GET";
-
         if (isPost == true && form != null)
         {
-            request.ContentType = "application/json";
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            foreach (KeyValuePair<string, string> formEntry in form)
             {
-                StringBuilder formString = new StringBuilder();
-                formString.Append('{');
-                foreach (KeyValuePair<string, string> formEntry in form)
-                {
-                    formString.Append($"\"{formEntry.Key}\":\"{formEntry.Value}\",");
-                }
-                if (formString.Length > 1)
-                    formString.Remove(formString.Length - 1, 1);
-                formString.Append('}');
-
-                streamWriter.Write(formString.ToString());
+                formData = new List<IMultipartFormSection>();
+                formData.Add(new MultipartFormFileSection($"\"{formEntry.Key}\"", "\"{formEntry.Value}\""));
             }
         }
 
-        try
+        UnityWebRequest uwr;
+        if (isPost == false)
+            uwr = UnityWebRequest.Get($"{serverLocation}/{route}");
+        else
+            uwr = UnityWebRequest.Post($"{serverLocation}/{route}", formData);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError || uwr.isHttpError)
         {
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
-            {
-                jsonResponse = reader.ReadToEnd();
-            }
-
-            print("response: " + jsonResponse);
-            return null;
-
-            return jsonResponse;
+            postRequestMethod(null);
+            Debug.Log(uwr.error);
         }
-        catch
-        
+        else
         {
-            print("AAAAH");
-            return null;
+            postRequestMethod(uwr.downloadHandler.text);
+            print(uwr.downloadHandler.text);
         }
-
     }
 }
