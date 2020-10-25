@@ -19,7 +19,7 @@ public class StoreTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag.Equals("Player") && other.GetComponent<Player>().isReal)
-            StartCoroutine(HideStore());
+            HideStore();
     }
 
     private void ShowStore()
@@ -28,7 +28,12 @@ public class StoreTrigger : MonoBehaviour
         cf.Fade(true, 2);
     }
 
-    private IEnumerator HideStore()
+    public void HideStore()
+    {
+        StartCoroutine(HideStoreCo());
+    }
+
+    private IEnumerator HideStoreCo()
     {
         cf.Fade(false, 2);
         yield return new WaitForSeconds(.5f);

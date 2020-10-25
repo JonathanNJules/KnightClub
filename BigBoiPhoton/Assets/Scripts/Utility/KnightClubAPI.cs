@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -42,14 +40,25 @@ public class KnightClubAPI : MonoBehaviour
         instance.StartCoroutine(MakeRequest("changeBalance", postRequestMethod, false, form));
     }
 
-    public static void GetItems(Action<string> postMethodRequest, string itemType)
+    public static void GetItem(Action<string> postMethodRequest, string username, string itemtype)
     {
-        instance.StartCoroutine(MakeRequest("itemlist", postMethodRequest, false));
+        var form = new Dictionary<string, string>
+        {
+            {"username", username },
+            {"itemtype", itemtype }
+        };
+        instance.StartCoroutine(MakeRequest("itemlist", postMethodRequest, false, form));
     }
 
-    public static void BuyHeadwear()
+    public static void SetItem(Action<string> postMethodRequest, string username, string itemtype, string itemname)
     {
-        //string response = "";
+        var form = new Dictionary<string, string>
+        {
+            {"username", username },
+            {"itemtype", itemtype },
+            {"itemname", itemname }
+        };
+        instance.StartCoroutine(MakeRequest("additem", postMethodRequest, true, form));
     }
 
     public static string LoginWithJWT(string jwt)
@@ -62,9 +71,7 @@ public class KnightClubAPI : MonoBehaviour
 
     private static IEnumerator MakeRequest(string route, Action<string> postRequestMethod, bool isPost = false, Dictionary<string, string> form = null)
     {
-        List<IMultipartFormSection> formData = null;
-
-        if (isPost == false && form != null)
+        if (form != null)
         {
             route += "?";
             bool firsted = false;
@@ -78,29 +85,24 @@ public class KnightClubAPI : MonoBehaviour
             }
         }
 
-        if (form != null)
-        {
-            formData = new List<IMultipartFormSection>();
-            foreach (KeyValuePair<string, string> formEntry in form)
-                formData.Add(new MultipartFormFileSection($"\"{formEntry.Key}\"", $"\"{formEntry.Value}\""));
-        }
+        //if (form != null)
+        //{
+        //    formData = new List<IMultipartFormSection>();
+        //    foreach (KeyValuePair<string, string> formEntry in form)
+        //        formData.Add(new MultipartFormFileSection($"\"{formEntry.Key}\"", $"\"{formEntry.Value}\""));
+        //}
 
         UnityWebRequest uwr;
-        if (isPost == false)
+        
+        if(isPost == false)
             uwr = UnityWebRequest.Get($"{serverLocation}/{route}");
         else
-            uwr = UnityWebRequest.Post($"{serverLocation}/{route}", formData);
+            uwr = UnityWebRequest.Post($"{serverLocation}/{route}", "");
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError || uwr.isHttpError)
-        {
             postRequestMethod(null);
-            Debug.Log(uwr.error);
-        }
         else
-        {
             postRequestMethod(uwr.downloadHandler.text);
-            print(uwr.downloadHandler.text);
-        }
     }
 }

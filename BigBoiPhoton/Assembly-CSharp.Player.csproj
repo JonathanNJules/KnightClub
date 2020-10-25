@@ -99,6 +99,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\Misc\RotateScript.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\Gameplay\StoreTrigger.cs" />
@@ -119,7 +120,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ChatMessageRelayer.cs" />
     <Compile Include="Assets\Scripts\Misc\CanvasFader.cs" />
-    <Compile Include="Assets\Scripts\Misc\RotateScript.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Pet.cs" />
+    <Compile Include="Assets\Scripts\Menus\Store.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

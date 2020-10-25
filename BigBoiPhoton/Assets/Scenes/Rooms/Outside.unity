@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 16877052}
   - component: {fileID: 16877055}
   - component: {fileID: 16877054}
+  - component: {fileID: 16877056}
   m_Layer: 5
   m_Name: Gear Store
   m_TagString: Untagged
@@ -154,7 +155,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6765557614058458810}
   - {fileID: 1686779869}
   - {fileID: 1927699670}
   - {fileID: 814454852}
@@ -163,6 +163,7 @@ RectTransform:
   - {fileID: 1917482277}
   - {fileID: 531513250}
   - {fileID: 1501448029}
+  - {fileID: 6765557614058458810}
   m_Father: {fileID: 6765557612980735294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,6 +234,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &16877056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16877050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196fb9af99ddbcd41bf062915382f867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  st: {fileID: 142566853}
 --- !u!1 &38350618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,7 +1661,7 @@ RectTransform:
   - {fileID: 1939742159}
   - {fileID: 1453468080}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2155,7 +2169,7 @@ RectTransform:
   - {fileID: 82083886}
   - {fileID: 805312183}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2960,7 +2974,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 720471546}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Headphones
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &720471546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3213,7 +3239,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 809659935}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Headband
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &809659935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3285,7 +3323,7 @@ RectTransform:
   - {fileID: 169825137}
   - {fileID: 285891122}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3971,7 +4009,7 @@ RectTransform:
   - {fileID: 256653425}
   - {fileID: 122710743}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4096,7 +4134,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269160071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GraduationCap
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269160071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4349,7 +4399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1319151697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Glasses
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1319151697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4599,7 +4661,7 @@ RectTransform:
   - {fileID: 212741467}
   - {fileID: 427702486}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5033,7 +5095,7 @@ RectTransform:
   - {fileID: 38350619}
   - {fileID: 1151301140}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5408,7 +5470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830175084}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BucketHat
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1830175084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5615,6 +5689,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -52.950012
+      objectReference: {fileID: 0}
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.950012
+      objectReference: {fileID: 0}
+    - target: {fileID: 493427938, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 19.669403
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786888595, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786888595, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786888595, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786888595, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786888595, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -137.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786888595, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.950012
+      objectReference: {fileID: 0}
     - target: {fileID: 3987498720378156914, guid: f3143ac0f00b1ee499ebbd710eaa6d75, type: 3}
       propertyPath: m_Name
       value: Main Canvas
@@ -5833,7 +5959,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1906825730}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Tophat
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1906825730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5905,7 +6043,7 @@ RectTransform:
   - {fileID: 503478172}
   - {fileID: 1302418554}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5983,7 +6121,7 @@ RectTransform:
   - {fileID: 1631094351}
   - {fileID: 862136083}
   m_Father: {fileID: 16877051}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6497,7 +6635,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2136864941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bowtie
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2136864941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6624,7 +6774,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6765557612387498023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16877056}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mask
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6765557612387498023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6784,7 +6946,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 16877051}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

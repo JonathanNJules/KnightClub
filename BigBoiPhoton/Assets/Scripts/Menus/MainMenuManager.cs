@@ -24,6 +24,8 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public UnityEngine.UI.Toggle newServerVisibleToggle;
     public TMP_InputField manualServerNameIPF;
     public ServerList sl;
+    public UnityEngine.UI.Button createServerButton;
+    public TMP_Text createServerText;
 
     public GameObject errorPopupPrefab;
     public Transform errorsParent;
@@ -71,8 +73,17 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        print("just connected");
         PhotonNetwork.JoinLobby();
+        print("just connected");
+    }
+
+    public override void OnJoinedLobby()
+    {
+        print("NOW IM READY");
+        createServerButton.interactable = true;
+        createServerText.text = "CREATE";
+        createServerText.fontSize = 20;
+        createServerText.color = Color.white;
     }
 
     public void Logout()

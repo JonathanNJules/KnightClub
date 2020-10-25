@@ -204,9 +204,12 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void SetHeadwear(string headwear)
     {
+        print($"Setting headwear to {headwear}!");
         for(int i = 0; i < headwearParent.childCount; i++)
         {
             GameObject g = headwearParent.GetChild(i).gameObject;
+            print($"is {g.name} equal to {headwear}? {g.name.Equals(headwear)}");
+            print($"a len: {g.name.Length} | b len: {headwear.Length}");
             g.gameObject.SetActive(g.name == headwear);
         }
     }

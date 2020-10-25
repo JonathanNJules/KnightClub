@@ -2195,7 +2195,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2209,7 +2209,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 772041429}
   m_OnClick:
     m_PersistentCalls:
@@ -3320,6 +3320,8 @@ MonoBehaviour:
   newServerVisibleToggle: {fileID: 85865002}
   manualServerNameIPF: {fileID: 1475942872}
   sl: {fileID: 1276622948}
+  createServerButton: {fileID: 772041428}
+  createServerText: {fileID: 1658918581}
   errorPopupPrefab: {fileID: 6703353725508335759, guid: b17a5ade16dc9ca4bba7cd85f5ac0a2d, type: 3}
   errorsParent: {fileID: 1138743617}
 --- !u!1 &1136801431
@@ -5459,7 +5461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREATE
+  m_text: CONNECTING TO SERVER...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5468,8 +5470,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291940817
-  m_fontColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    rgba: 4283124555
+  m_fontColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5486,12 +5488,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 5
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
