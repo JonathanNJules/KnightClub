@@ -15,6 +15,7 @@ ScriptsOnlyBuild:
     - MainMenuManager
     - Maze
     - Player
+    - RotateScript
     - SceneDoor
     - ServerList
     - StoreTrigger
@@ -28,6 +29,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -119,13 +122,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 14364}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -194,13 +197,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 14364}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -319,25 +322,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13800}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13874}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 13958}
+      Script: {instanceID: 13960}
     - Class: 114
-      Script: {instanceID: 14176}
+      Script: {instanceID: 14178}
     - Class: 114
-      Script: {instanceID: 14314}
+      Script: {instanceID: 14316}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14450}
+      Script: {instanceID: 14452}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14460}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 14496}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -418,15 +421,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 14450}
+      Script: {instanceID: 14452}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14460}
     - Class: 114
-      Script: {instanceID: 14476}
+      Script: {instanceID: 14478}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -470,6 +473,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 96
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -495,13 +500,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13864}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14364}
+    - Class: 114
+      Script: {instanceID: 14460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -545,6 +552,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 96
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -570,13 +579,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13864}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14364}
+    - Class: 114
+      Script: {instanceID: 14460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -645,17 +656,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13870}
     - Class: 114
-      Script: {instanceID: 13942}
+      Script: {instanceID: 13944}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13952}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 14364}
     - Class: 114
-      Script: {instanceID: 14450}
+      Script: {instanceID: 14452}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14460}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1327,7 +1338,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 62125b65919a68e841638c9d596b8ca3
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1801,13 +1812,19 @@ ScriptsOnlyBuild:
     className: LoaderAnime
   - hash:
       serializedVersion: 2
+      Hash: c42ca169c537ea628ab2d66cc7b7a38f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotateScript
+  - hash:
+      serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: affe611b9a4d810f6e8bc4708714d0fc
+      Hash: 55580ca4d1549e27f4c5b7102ad61834
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

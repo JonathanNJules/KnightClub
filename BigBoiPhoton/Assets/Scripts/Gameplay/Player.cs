@@ -14,6 +14,8 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     private Vector3 moveVector;
     public float moveSpeed;
+    private bool moveLock;
+    private float moveLockTimer, maxMoveLockTimer = 0.5f;
     public bool isReal;
 
     private Vector3 networkedPos;
@@ -22,7 +24,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     private int networkedEmoteIndex;
     private bool networkedCutEmote;
     public float networkSmoothingSpeed;
-    public int networkedHeadwearIndex;
 
     public TMP_Text nameText;
     public Transform chatMessageParent;
@@ -39,15 +40,15 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
     {
         print("just loaded " + scene.name +", and my scene is " + currentSceneName);
 
-        if (photonView.IsMine)
-            networkedHeadwearIndex = Random.Range(0, 4);
-
         GameManager.usersScene = scene.name;
         if (!photonView.IsMine)
         {
             CorrectSceneMismatch();
             return;
         }
+
+        moveLock = true;
+        moveLockTimer = maxMoveLockTimer;
 
         if (!scene.name.Contains("Game"))
         {
@@ -99,8 +100,15 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
 
     void OwnerUpdate()
     {
+        if (moveLock)
+        {
+            moveLockTimer -= Time.deltaTime;
+            if(moveLockTimer <= 0)
+                moveLock = false;
+        }
+
         // Only move if not in chat box
-        moveVector = cmr.inChatBox ? Vector3.zero : new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveVector = (cmr.inChatBox || moveLock) ? Vector3.zero : new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (moveVector.sqrMagnitude > 1) moveVector = moveVector.normalized;
         networkedMovementMag = moveVector.magnitude;
@@ -154,7 +162,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(networkedMovementMag);
             stream.SendNext(networkedEmoteIndex);
             stream.SendNext(networkedCutEmote);
-            stream.SendNext(networkedHeadwearIndex);
         }
         else
         {
@@ -163,7 +170,6 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
             networkedMovementMag = (float)stream.ReceiveNext();
             networkedEmoteIndex = (int)stream.ReceiveNext();
             networkedCutEmote = (bool)stream.ReceiveNext();
-            networkedHeadwearIndex = (int)stream.ReceiveNext();
         }
     }
 
@@ -201,8 +207,7 @@ public class Player : MonoBehaviourPunCallbacks, IPunObservable
         for(int i = 0; i < headwearParent.childCount; i++)
         {
             GameObject g = headwearParent.GetChild(i).gameObject;
-            print(g.name + " is " + headwear + "? " + (g.name == headwear));
-;            g.gameObject.SetActive(g.name == headwear);
+            g.gameObject.SetActive(g.name == headwear);
         }
     }
 
