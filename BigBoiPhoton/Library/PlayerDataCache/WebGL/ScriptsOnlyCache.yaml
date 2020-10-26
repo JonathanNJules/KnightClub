@@ -2329,4 +2329,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Rooms/Balcony.unity
   - Assets/Scenes/Games/Game-Maze.unity
   - Assets/Scenes/Games/Game-Flopper.unity
-  playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds/Dev
+  playerPath: C:/Users/jnjju/Documents/KnightClub/BigBoiPhoton/Builds/Prod
