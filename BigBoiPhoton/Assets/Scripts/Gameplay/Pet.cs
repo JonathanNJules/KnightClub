@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Pet : MonoBehaviour
 {
@@ -11,19 +9,45 @@ public class Pet : MonoBehaviour
 
     private bool moving;
     public Transform target;
+    private Transform model;
+    private bool initialized;
 
+    public float jumpHeight = 0.4f;
+    public float hopSpeed = 40;
+    public float moveInfluence = 1;
 
     void Start()
     {
-        
+        DontDestroyOnLoad(this);
+        model = transform.GetChild(0);
     }
 
     void Update()
     {
-        if (!moving && Vector3.Distance(transform.position, target.position) > 0.5f)
+        //if (!initialized) return;
+
+        Vector3 moveV = target.position - transform.position;
+
+        if (!moving && moveV.magnitude > 0.5f)
             moving = true;
 
-        if (moving && Vector3.Distance(transform.position, target.position) < 0.5f)
+        if (moving && moveV.magnitude < 0.5f)
+        {
             moving = false;
+            model.localPosition = Vector3.zero;
+        }
+
+        if(moving)
+        {
+            transform.position += moveV * Time.deltaTime;
+            transform.LookAt(target);
+            model.localPosition = new Vector3(0, jumpHeight * (Mathf.Sin(Time.timeSinceLevelLoad * hopSpeed + (moveV.magnitude * moveInfluence)) + 1), 0);
+        }
+    }
+
+    public void Initialize(Transform newTarget)
+    {
+        target = newTarget;
+        initialized = true;
     }
 }
